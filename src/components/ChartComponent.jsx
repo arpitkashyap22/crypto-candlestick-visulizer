@@ -50,11 +50,15 @@ const ChartComponent = ({ data }) => {
       },
 
     },
+    ticks: {
+      autoSkip: true,
+      maxTicksLimit: 20, // Limit the number of ticks displayed
+    },
     maintainAspectRatio: false,
   };
 
   return (
-    <div className='size-4/5'>
+    <div style={{ width: '100%', height: '420px', maxWidth: '900px', margin: '0 auto' }}>
       <Chart type="candlestick" data={chartData} options={options} />
     </div>
   );
