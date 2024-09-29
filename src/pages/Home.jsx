@@ -38,7 +38,7 @@ const Home = () => {
 
     ws.current = connectWebSocket(selectedCoin, selectedInterval, (newCandle) => {
       setChartData((prev) => {
-        const updatedData = [...(prev[selectedCoin] || []), newCandle].slice(-500);  // Keep last 50 candles
+        const updatedData = [...(prev[selectedCoin] || []), newCandle].slice(-500);  // Keep last 500 candles
         localStorage.setItem(`${selectedCoin}_${selectedInterval}`, JSON.stringify(updatedData));  // Save to localStorage
         return { ...prev, [selectedCoin]: updatedData };
       });
